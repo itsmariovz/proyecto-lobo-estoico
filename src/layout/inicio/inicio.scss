@@ -1,0 +1,71 @@
+.hero-section {
+  position: relative; // Necesario para posicionar el contenido y el degradado
+  width: 100%;
+  height: 60vh; // Ocupa el 100% de la altura de la ventana del navegador
+  overflow: hidden; // Esconde cualquier parte de la imagen que se salga
+
+  @media (min-width: 992px) {
+    width: 75%; // En PC, que no ocupe todo el ancho, solo el 80%
+    border-radius: 20px; // Ya que estamos, le damos un toque moderno
+    margin-top: 20px;
+    left: 12.5%; // Centra horizontalmente en PC
+    background-color: #000;
+  }
+
+  .hero-image-container {
+    position: absolute;
+   inset:0;
+  }
+
+  .hero-image {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    object-fit:cover; 
+    background-color: #000;
+    // Asegura que la imagen cubra todo sin distorsionarse
+    object-position: center  ; // Centra la imagen
+    filter: brightness(0.7); // Oscurece un poco la imagen para que el texto blanco resalte
+   
+  }
+
+  .gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 500px; // Altura del degradado, ajústalo si quieres que desvanezca más o menos
+    
+    // Degradado de transparente a negro (para que se funda con el fondo)
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+}
+
+.product-card {
+  border: 1px solid #444; /* Contorno sutil oscuro */
+  border-radius: 12px;    /* Bordes redondeados modernos */
+  padding: 15px;
+  background-color: #111314; /* Fondo ligeramente diferente al principal */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  height: 100%;           /* Para que todos los bordes midan lo mismo */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+.product-info {
+  margin-top: 15px;
+  text-align: center;
+  color: #e0e0e0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-card img {
+  border-radius: 8px;
+  max-height: 550px;      /* Controla que las imágenes no se disparen */
+  object-fit: contain;    /* Mantiene la proporción de tus libros sin fondo */
+}

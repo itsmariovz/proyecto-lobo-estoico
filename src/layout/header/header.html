@@ -1,0 +1,45 @@
+<nav class=" navbar navbar-expand-lg mb-4 mt-3 border border-2 mx-3">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img src="img/logo.jpg" alt="logo" width="120" height="100" >
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+   <ul class="navbar-nav ">
+      <li class="nav-item">
+        <a class="nav-link fs-5" routerLink="/">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link fs-5" routerLink="/sobre-mi">Sobre Mi</a>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Tienda
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/libros">Libros</a></li>
+            <li><a class="dropdown-item" routerLink="/productos">Productos</a></li>
+          </ul>
+        </li>
+    </ul>
+
+    </div>
+
+<div class="d-flex align-items-center">
+      <a href="https://www.instagram.com/lobo_estoico_/" 
+         target="_blank" 
+         class="text-white d-flex align-items-center text-decoration-none nav-ig-link"
+         aria-label="Instagram de Lobo Estoico">
+        
+        <i class="bi bi-instagram fs-3"></i>
+        
+        <span class="d-none d-md-inline ms-2 fw-bold">Instagram</span>
+      </a>
+    </div>
+
+
+  </div>
+</nav>

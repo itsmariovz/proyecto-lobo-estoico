@@ -1,1 +1,14 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+  background-color: #050505; // Un oscuro más profundo que el de la imagen
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+}
+
+.text-gradient {
+  background: linear-gradient(45deg, #4A90E2, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
