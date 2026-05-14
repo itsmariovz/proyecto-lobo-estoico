@@ -1,0 +1,20 @@
+.bio-image-wrapper {
+  display: inline-block;
+}
+
+.bio-photo {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(201, 168, 76, 0.4);
+  box-shadow: 0 0 40px rgba(201, 168, 76, 0.1);
+}
+
+.bio-text {
+  color: #c0c0c0;
+  line-height: 1.85;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}

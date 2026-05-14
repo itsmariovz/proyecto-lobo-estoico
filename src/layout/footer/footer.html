@@ -1,5 +1,40 @@
-<div class="row">
-    <div class="col-12 text-center">
-        <p class="mb-0">Copyright &copy; 2026. All rights reserved.</p>
+<footer class="site-footer">
+  <div class="container-fluid px-3 px-lg-5">
+    <div class="row gy-4">
+
+      <!-- Marca -->
+      <div class="col-12 col-md-4">
+        <img src="img/logo.jpg" alt="Lobo Estoico" class="footer-logo mb-3">
+        <p class="footer-tagline">
+          Filosofía de acero para quienes eligen el camino del lobo.
+        </p>
+      </div>
+
+      <!-- Navegación -->
+      <div class="col-6 col-md-4">
+        <h6 class="footer-heading">Navegación</h6>
+        <ul class="footer-links">
+          <li><a routerLink="/">Inicio</a></li>
+          <li><a routerLink="/sobre-mi">Sobre Mí</a></li>
+          <li><a routerLink="/libros">Libros</a></li>
+          <li><a routerLink="/productos">Productos</a></li>
+        </ul>
+      </div>
+
+      <!-- Comunidad -->
+      <div class="col-6 col-md-4">
+        <h6 class="footer-heading">Comunidad</h6>
+        <a [href]="content().instagramUrl" target="_blank"
+          class="footer-social-link" aria-label="Instagram de Lobo Estoico">
+          <i class="bi bi-instagram"></i>
+          <span>&#64;lobo_estoico_</span>
+        </a>
+      </div>
+
     </div>
-</div>
+
+    <div class="footer-bottom">
+      <p class="mb-0">Copyright &copy; 2026 Lobo Estoico. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

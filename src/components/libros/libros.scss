@@ -1,0 +1,30 @@
+.book-cover {
+  max-height: 380px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.product-card {
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 2rem;
+  background-color: #0e0f10;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 168, 76, 0.3);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55);
+  }
+}
+
+.product-info {
+  color: #d0d0d0;
+  font-size: 0.97rem;
+  line-height: 1.7;
+}
+
+.text-muted-brand {
+  color: #888;
+  font-size: 0.9rem;
+}

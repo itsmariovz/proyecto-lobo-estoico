@@ -1,100 +1,91 @@
+<!-- Hero Section -->
 <div class="hero-section">
-    <div class="hero-img-container">
-        <img src="img/lobo.jpg" alt="lobo" class="hero-image">
-    </div>
-    <div class="gradient-overlay"></div>
+  <img src="img/lobo.jpg" alt="Lobo Estoico" class="hero-image">
+  <div class="gradient-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">{{ content().heroEyebrow }}</p>
+    <h1 class="display-2 fw-bold text-white">{{ content().heroTitle }}</h1>
+    <p class="hero-sub" [innerHTML]="heroSubtitle()"></p>
+    <a routerLink="/libros" class="btn btn-accent btn-lg mt-4">Explorar Libros</a>
   </div>
-  <div class="text-center hero-content">
-    <h1 class="display-3 text-white text-center">Filosofía de Lobo Estoico</h1>
-    <p class="lead text-white text-center">No es autoayuda blanda.<br>
-Es un recordatorio crudo de que la vida no espera a nadie.<br>
-Aquí no encontrarás adornos ni frases bonitas: cada frase es un golpe directo para despertar tu fuerza, tu carácter y tu disciplina
-</p>
-    
-  </div>
+</div>
 
-<div class="container fluid mt-5">
-  <div class="row">
-    
-    <div class="col-md-12 mb-4">
-      <div class="product-card">
-        <h1 class="text-center">Ya disponible</h1>
-        <img src="img/resiliencia.jpg" alt="Resiliencia" class="img-fluid">
-        <div class="product-info">
-          <h3>Resiliencia: El arte de luchar en silencio.</h3>
-            <p>
-            Este libro es para ti si:
-                Has atravesado momentos difíciles y sigues en pie.
-                Te sientes cansado emocionalmente, pero no rendido.
-                Buscas crecimiento personal sin discursos vacíos.
-                Crees que la verdadera fuerza se construye en silencio.
-                Resiliencia no promete cambiar tu vida.
-                Te enseña a sostenerla, incluso cuando pesa.
+<!-- Contenido principal -->
+<div class="container-fluid px-3 px-lg-5 mt-5 pb-5">
+  <div class="row g-4">
+
+    <!-- Libro destacado -->
+    <div class="col-12">
+      <div class="product-card featured-card d-flex flex-column flex-md-row align-items-center gap-4">
+        <img src="img/resiliencia.jpg" alt="Resiliencia" class="book-cover-lg">
+        <div class="product-info text-start">
+          <span class="badge-new">Ya disponible</span>
+          <h2 class="mt-3">{{ content().featuredBookTitle }}</h2>
+          <p class="text-muted-brand mb-2 mt-2">Este libro es para ti si:</p>
+          <ul class="benefit-list">
+            <li>Has atravesado momentos difíciles y sigues en pie.</li>
+            <li>Te sientes cansado emocionalmente, pero no rendido.</li>
+            <li>Buscas crecimiento personal sin discursos vacíos.</li>
+            <li>Crees que la verdadera fuerza se construye en silencio.</li>
+          </ul>
+          <p class="mt-3 fst-italic text-muted-brand">{{ content().featuredBookFootnote }}</p>
+          <a routerLink="/libros" class="btn btn-accent btn-lg mt-3">Descubre Más</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Segundo libro -->
+    <div class="col-md-6">
+      <div class="product-card h-100 text-center">
+        <h3 class="mb-3">{{ content().secondBookTitle }}</h3>
+        <img src="img/libro1.png" alt="El Primer Camino" class="img-fluid book-cover-sm">
+        <div class="product-info mt-3">
+          <p>{{ content().secondBookDescription }}</p>
+          <a routerLink="/libros" class="btn btn-outline-light btn-lg mt-3">Descubre Más</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beneficios -->
+    <div class="col-md-6">
+      <div class="product-card h-100">
+        <img src="img/lobofuerte.png" alt="Lobo Fuerte" class="img-fluid benefits-img">
+        <div class="product-info mt-3">
+          <h4 class="mb-3">¿Qué conseguirás?</h4>
+          <ul class="benefit-list">
+            <li>Mantener la calma en medio del caos.</li>
+            <li>Forjar disciplina cuando más la necesitas.</li>
+            <li>Dejar de pedir permiso para ser tú mismo.</li>
+            <li>Transformar la adversidad en poder personal.</li>
+            <li>Caminar solo cuando la manada no entienda tu visión.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Para quién -->
+    <div class="col-12">
+      <div class="product-card d-flex flex-column flex-md-row align-items-center gap-4">
+        <img src="img/nunca.png" alt="Para quién" class="book-cover-lg">
+        <div class="product-info text-start">
+          <h3 class="mb-3">¿Para quién es esto?</h3>
+          <ul class="benefit-list">
+            <li>Para quienes sienten que viven atrapados como ovejas, siguiendo al rebaño.</li>
+            <li>Para quienes desean fuerza mental, resiliencia y autenticidad.</li>
+            <li>Para los que están cansados de sobrevivir y quieren empezar a dominar su vida.</li>
+          </ul>
+          <p class="mt-3 fst-italic text-muted-brand">
+            Esta filosofía no maquilla la verdad. No promete atajos ni frases motivacionales
+            pasajeras. Es directa, brutalmente honesta y enfocada en quienes buscan
+            endurecer su espíritu en un mundo frágil.
           </p>
-          <button class="btn btn-outline-light  btn-lg mt-3">Descubre Más</button>
+          <a [href]="content().instagramUrl" target="_blank"
+            class="btn btn-outline-light btn-lg mt-3">
+            <i class="bi bi-instagram me-2"></i>Únete a la Manada
+          </a>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6 mb-4">
-      <div class="product-card text-center">
-        <h3>El primer camino</h3>
-        <img src="img/libro1.png" alt="Libro 1" class="img-fluid">
-        <div class="product-info">
-          <p>
-        Prepárate para un viaje transformador que te llevará desde la desesperación hasta el empoderamiento total. Si estás listo para dejar de mendigar aprobación y empezar a vivir en tus propios términos, este libro será tu guía hacia una vida de autenticidad, fuerza y propósito inquebrantable.
-        No esperes palabras suaves; espera la verdad cruda que necesitas para renacer más fuerte que nunca.</p>
-         <button class="btn btn-outline-light  btn-lg mt-3">Descubre Más</button>       </div>
-      </div>
-    </div>
-
-   
- <div class="col-md-6 mb-4">
-      <div class="product-card">
-        <img src="img/lobofuerte.png" alt="lobo" class="img-fluid">
-        <div class="product-info">
-          <p>¿Qué conseguirás?
-
-            A mantener la calma en medio del caos.<br>
-
-            A forjar disciplina cuando más la necesitas.<br>
-
-            A dejar de pedir permiso para ser tú mismo.<br>
-
-            A transformar la adversidad en poder personal.<br>
-
-            A caminar solo cuando la manada no entienda tu visión.<br>
-        </p>
-         </div>
-        </div>
-      </div>
-
-      <div class="col-md-12 mb-4">
-      <div class="product-card">
-        <img src="img/nunca.png" alt="lobo" class="img-fluid">
-        <div class="product-info">
-          
-          <h4>¿PARA QUIÉN?</h4>
-            <p> 
-
-            
-
-            Para quienes sienten que viven atrapados como ovejas, siguiendo al rebaño.
-                    <br>
-            Para quienes desean fuerza mental, resiliencia y autenticidad.
-                    <br>
-            Para los que están cansados de sobrevivir y quieren empezar a dominar su vida.
-                    <br>
-            ​Esta filosofía no maquilla la verdad.
-            No te promete atajos ni frases motivacionales pasajeras.
-            Es directa, brutalmente honesta y enfocada en quienes buscan endurecer su espíritu y levantarse más fuertes en un mundo frágil.
-        </p>
-         </div>
-        </div>
-      </div>
-    </div>
- 
-
-
-
+  </div>
 </div>

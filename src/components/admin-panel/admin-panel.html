@@ -1,0 +1,247 @@
+@if (adminService.isOpen()) {
+  <div class="admin-overlay" (click)="adminService.close()"></div>
+
+  <div class="admin-panel">
+
+    <!-- Cabecera -->
+    <div class="admin-header">
+      <span class="admin-title">
+        <i class="bi bi-shield-lock-fill"></i> Panel de Administrador
+      </span>
+      <button class="btn-close-panel" (click)="adminService.close()" aria-label="Cerrar">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+
+    @if (!adminService.isAuthenticated()) {
+
+      <!-- Pantalla de login -->
+      <div class="admin-login">
+        <div class="login-icon">🐺</div>
+        <h3>Acceso Restringido</h3>
+        <p>Introduce la contraseña para editar el contenido.</p>
+        <form (ngSubmit)="login()" class="w-100">
+          <input
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            class="form-control admin-input"
+            placeholder="Contraseña"
+            autocomplete="current-password">
+          @if (loginError) {
+            <p class="error-msg mt-2">Contraseña incorrecta. Inténtalo de nuevo.</p>
+          }
+          <button type="submit" class="btn btn-accent w-100 mt-3">Entrar</button>
+        </form>
+      </div>
+
+    } @else {
+
+      <!-- Tabs de navegación -->
+      <div class="admin-tabs">
+        <button class="tab-btn" [class.active]="activeTab === 'libros'" (click)="activeTab = 'libros'">
+          Libros
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'inicio'" (click)="activeTab = 'inicio'">
+          Inicio
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'bio'" (click)="activeTab = 'bio'">
+          Bio
+        </button>
+        <button class="tab-btn" [class.active]="activeTab === 'config'" (click)="activeTab = 'config'">
+          Config
+        </button>
+      </div>
+
+      <!-- Contenido editable -->
+      <div class="admin-content">
+        @if (saved) {
+          <div class="saved-badge">✓ Guardado automáticamente</div>
+        }
+
+        <!-- Tab: Libros (URLs de Amazon - lo más importante) -->
+        @if (activeTab === 'libros') {
+          <div class="admin-section">
+            <h5>URLs de Amazon</h5>
+            <p class="admin-hint">
+              Pega aquí el enlace de OneLink o el enlace directo de Amazon para cada libro.
+              Los cambios se aplican en tiempo real.
+            </p>
+
+            <label>Resiliencia — Enlace de compra</label>
+            <input type="url" class="form-control admin-input"
+              [(ngModel)]="draft.resilienciaUrl"
+              name="resilienciaUrl"
+              (ngModelChange)="onFieldChange()"
+              placeholder="https://www.amazon.com/dp/...">
+
+            <label class="mt-3">El Primer Camino — Enlace de compra</label>
+            <input type="url" class="form-control admin-input"
+              [(ngModel)]="draft.primerCaminoUrl"
+              name="primerCaminoUrl"
+              (ngModelChange)="onFieldChange()"
+              placeholder="https://www.amazon.com/dp/...">
+          </div>
+
+          <div class="admin-section">
+            <h5>Títulos de libros</h5>
+
+            <label>Título — Resiliencia</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.libro1Title"
+              name="libro1Title"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Título — El Primer Camino</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.libro2Title"
+              name="libro2Title"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Descripción — El Primer Camino</label>
+            <textarea class="form-control admin-input" rows="5"
+              [(ngModel)]="draft.libro2Description"
+              name="libro2Description"
+              (ngModelChange)="onFieldChange()"></textarea>
+          </div>
+        }
+
+        <!-- Tab: Inicio -->
+        @if (activeTab === 'inicio') {
+          <div class="admin-section">
+            <h5>Hero (imagen principal)</h5>
+
+            <label>Texto pequeño superior</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.heroEyebrow"
+              name="heroEyebrow"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Título principal</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.heroTitle"
+              name="heroTitle"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Subtítulo <span class="admin-hint-inline">(↵ = salto de línea)</span></label>
+            <textarea class="form-control admin-input" rows="4"
+              [(ngModel)]="draft.heroSubtitle"
+              name="heroSubtitle"
+              (ngModelChange)="onFieldChange()"></textarea>
+          </div>
+
+          <div class="admin-section">
+            <h5>Libro destacado</h5>
+
+            <label>Título del libro</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.featuredBookTitle"
+              name="featuredBookTitle"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Nota al pie</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.featuredBookFootnote"
+              name="featuredBookFootnote"
+              (ngModelChange)="onFieldChange()">
+          </div>
+
+          <div class="admin-section">
+            <h5>Segundo libro</h5>
+
+            <label>Título</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.secondBookTitle"
+              name="secondBookTitle"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Descripción</label>
+            <textarea class="form-control admin-input" rows="4"
+              [(ngModel)]="draft.secondBookDescription"
+              name="secondBookDescription"
+              (ngModelChange)="onFieldChange()"></textarea>
+          </div>
+        }
+
+        <!-- Tab: Bio -->
+        @if (activeTab === 'bio') {
+          <div class="admin-section">
+            <h5>Sobre mí</h5>
+
+            <label>Nombre</label>
+            <input type="text" class="form-control admin-input"
+              [(ngModel)]="draft.bioName"
+              name="bioName"
+              (ngModelChange)="onFieldChange()">
+
+            <label class="mt-3">Párrafo 1</label>
+            <textarea class="form-control admin-input" rows="4"
+              [(ngModel)]="draft.bioParagraph1"
+              name="bioParagraph1"
+              (ngModelChange)="onFieldChange()"></textarea>
+
+            <label class="mt-3">Párrafo 2</label>
+            <textarea class="form-control admin-input" rows="3"
+              [(ngModel)]="draft.bioParagraph2"
+              name="bioParagraph2"
+              (ngModelChange)="onFieldChange()"></textarea>
+          </div>
+        }
+
+        <!-- Tab: Config -->
+        @if (activeTab === 'config') {
+          <div class="admin-section">
+            <h5>Redes sociales</h5>
+
+            <label>URL de Instagram</label>
+            <input type="url" class="form-control admin-input"
+              [(ngModel)]="draft.instagramUrl"
+              name="instagramUrl"
+              (ngModelChange)="onFieldChange()"
+              placeholder="https://www.instagram.com/...">
+          </div>
+
+          <div class="admin-section">
+            <h5>Cambiar contraseña</h5>
+
+            <label>Nueva contraseña</label>
+            <input type="password" class="form-control admin-input"
+              [(ngModel)]="newPassword"
+              name="newPw"
+              autocomplete="new-password">
+
+            <label class="mt-3">Confirmar contraseña</label>
+            <input type="password" class="form-control admin-input"
+              [(ngModel)]="confirmPassword"
+              name="confirmPw"
+              autocomplete="new-password">
+
+            <button class="btn btn-outline-light btn-sm w-100 mt-3" (click)="changePassword()">
+              Actualizar contraseña
+            </button>
+
+            @if (passwordMsg) {
+              <p class="password-msg mt-2">{{ passwordMsg }}</p>
+            }
+          </div>
+
+          <div class="admin-section danger-zone">
+            <h5>Zona peligrosa</h5>
+            <p class="admin-hint">Borra todos los cambios y restaura los textos originales.</p>
+            <button class="btn btn-outline-danger btn-sm w-100" (click)="restore()">
+              Restaurar valores originales
+            </button>
+          </div>
+        }
+      </div>
+
+      <!-- Pie del panel -->
+      <div class="admin-footer">
+        <button class="btn btn-sm btn-outline-secondary" (click)="adminService.logout()">
+          <i class="bi bi-box-arrow-right me-1"></i>Cerrar sesión
+        </button>
+      </div>
+    }
+
+  </div>
+}

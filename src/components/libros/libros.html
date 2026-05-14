@@ -1,34 +1,46 @@
-<div class="container fluid mt-5 text-center">
-  <div class="row">
-    
-    <div class="col-md-6 mb-4">
-      <div class="product-card">
-        <h1 class="text-center"></h1>
-        <img src="img/catalogo-libro2.jpg" alt="Resiliencia" class="img-fluid">
+<div class="container-fluid px-3 px-lg-5 my-5">
+  <h1 class="section-title text-center mb-5">Libros</h1>
+
+  <div class="row g-4 justify-content-center">
+
+    <!-- Resiliencia -->
+    <div class="col-md-6 col-xl-5">
+      <div class="product-card h-100 text-center">
+        <img src="img/catalogo-libro2.jpg" alt="Resiliencia" class="img-fluid book-cover mb-4">
         <div class="product-info">
-          <h3>Resiliencia: El arte de luchar en silencio.</h3>
-            <p>
-            Este libro es para ti si:
-                Has atravesado momentos difíciles y sigues en pie.
-                Te sientes cansado emocionalmente, pero no rendido.
-                Buscas crecimiento personal sin discursos vacíos.
-                Crees que la verdadera fuerza se construye en silencio.
-                Resiliencia no promete cambiar tu vida.
-                Te enseña a sostenerla, incluso cuando pesa.
+          <h3>{{ content().libro1Title }}</h3>
+          <p class="text-muted-brand mb-2 mt-2">Este libro es para ti si:</p>
+          <ul class="benefit-list text-start mx-auto" style="max-width:360px">
+            <li>Has atravesado momentos difíciles y sigues en pie.</li>
+            <li>Te sientes cansado emocionalmente, pero no rendido.</li>
+            <li>Buscas crecimiento personal sin discursos vacíos.</li>
+            <li>Crees que la verdadera fuerza se construye en silencio.</li>
+          </ul>
+          <p class="mt-3 fst-italic text-muted-brand">
+            Resiliencia no promete cambiar tu vida. Te enseña a sostenerla, incluso cuando pesa.
           </p>
-          <button class="btn btn-outline-light  btn-lg mt-3">Comprar Ahora</button>
+          <a [href]="content().resilienciaUrl" target="_blank"
+            class="btn btn-accent btn-lg mt-4">Comprar Ahora</a>
         </div>
       </div>
     </div>
 
-    <div class="col-md-6 mb-4">
-      <div class="product-card">
-        
-        <img src="img/catalogo-libro1.jpg" alt="Libro 1" class="img-fluid">
+    <!-- El Primer Camino -->
+    <div class="col-md-6 col-xl-5">
+      <div class="product-card h-100 text-center">
+        <img src="img/catalogo-libro1.jpg" alt="El Primer Camino" class="img-fluid book-cover mb-4">
         <div class="product-info">
-          <p>
-        Prepárate para un viaje transformador que te llevará desde la desesperación hasta el empoderamiento total. Si estás listo para dejar de mendigar aprobación y empezar a vivir en tus propios términos, este libro será tu guía hacia una vida de autenticidad, fuerza y propósito inquebrantable.
-        No esperes palabras suaves; espera la verdad cruda que necesitas para renacer más fuerte que nunca.</p>
-         <button class="btn btn-outline-light  btn-lg mt-3">Comprar Ahora</button>       </div>
+          <h3>{{ content().libro2Title }}</h3>
+          <p class="mt-3">{{ content().libro2Description }}</p>
+          <p class="fst-italic text-muted-brand mt-2">
+            No esperes palabras suaves; espera la verdad cruda que necesitas
+            para renacer más fuerte que nunca.
+          </p>
+          <a [href]="content().primerCaminoUrl" target="_blank"
+            class="btn btn-accent btn-lg mt-4">Comprar Ahora</a>
+        </div>
       </div>
     </div>
+
+  </div>
+</div>

@@ -1,71 +1,135 @@
 .hero-section {
-  position: relative; // Necesario para posicionar el contenido y el degradado
+  position: relative;
   width: 100%;
-  height: 60vh; // Ocupa el 100% de la altura de la ventana del navegador
-  overflow: hidden; // Esconde cualquier parte de la imagen que se salga
+  height: 90vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: brightness(0.55);
+}
+
+.gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(5, 5, 5, 1) 0%,
+    rgba(5, 5, 5, 0.45) 45%,
+    rgba(5, 5, 5, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  padding: 2.5rem 1.5rem 4rem;
+  text-align: center;
 
   @media (min-width: 992px) {
-    width: 75%; // En PC, que no ocupe todo el ancho, solo el 80%
-    border-radius: 20px; // Ya que estamos, le damos un toque moderno
-    margin-top: 20px;
-    left: 12.5%; // Centra horizontalmente en PC
-    background-color: #000;
+    text-align: left;
+    padding: 3rem 5rem 5rem;
+    max-width: 720px;
   }
+}
 
-  .hero-image-container {
-    position: absolute;
-   inset:0;
+.hero-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 0.75rem;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.75;
+  margin: 1rem 0 0;
+  max-width: 580px;
+
+  @media (max-width: 991px) {
+    margin-left: auto;
+    margin-right: auto;
   }
-
-  .hero-image {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    object-fit:cover; 
-    background-color: #000;
-    // Asegura que la imagen cubra todo sin distorsionarse
-    object-position: center  ; // Centra la imagen
-    filter: brightness(0.7); // Oscurece un poco la imagen para que el texto blanco resalte
-   
-  }
-
-  .gradient-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 500px; // Altura del degradado, ajústalo si quieres que desvanezca más o menos
-    
-    // Degradado de transparente a negro (para que se funda con el fondo)
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-  }
-
 }
 
 .product-card {
-  border: 1px solid #444; /* Contorno sutil oscuro */
-  border-radius: 12px;    /* Bordes redondeados modernos */
-  padding: 15px;
-  background-color: #111314; /* Fondo ligeramente diferente al principal */
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  height: 100%;           /* Para que todos los bordes midan lo mismo */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 2rem;
+  background-color: #0e0f10;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 168, 76, 0.3);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55);
+  }
 }
 
-
+.featured-card {
+  border-color: rgba(201, 168, 76, 0.2);
+  background: linear-gradient(135deg, #0e0f10 0%, #13120e 100%);
+}
 
 .product-info {
-  margin-top: 15px;
-  text-align: center;
-  color: #e0e0e0;
-  font-size: 0.95rem;
-  font-weight: 500;
+  color: #d0d0d0;
+  font-size: 0.97rem;
+  line-height: 1.7;
 }
 
-.product-card img {
+.book-cover-lg {
+  width: 100%;
+  max-width: 260px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  object-fit: contain;
+
+  @media (max-width: 767px) {
+    max-width: 180px;
+  }
+}
+
+.book-cover-sm {
+  max-height: 340px;
   border-radius: 8px;
-  max-height: 550px;      /* Controla que las imágenes no se disparen */
-  object-fit: contain;    /* Mantiene la proporción de tus libros sin fondo */
+  object-fit: contain;
+}
+
+.benefits-img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.badge-new {
+  display: inline-block;
+  background-color: rgba(201, 168, 76, 0.12);
+  color: #C9A84C;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.78rem;
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.text-muted-brand {
+  color: #888;
+  font-size: 0.9rem;
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-libros',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './libros.scss',
 })
 export class Libros {
-
+  private contentService = inject(ContentService);
+  content = this.contentService.content;
 }

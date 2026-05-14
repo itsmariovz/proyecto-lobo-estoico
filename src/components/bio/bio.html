@@ -1,18 +1,28 @@
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-7 text-center">
 
-<div class="container my-5 text-center">
-    
-   
-<div class="row">
-    <div class="col-12 ">
-       <h1>Sobre Lobo Estoico</h1> 
-       <div class="img-bio img-fluid rounded-4  mb-4">
-       <img src="img/daniel.png" alt="daniel">
-        </div>
-        <p class="lead fs-5 lh-lg">
-            ​Mi nombre es Daniel. Soy creador de Lobo Estoico, una comunidad que inspira a miles en redes sociales con mensajes de resiliencia, disciplina y filosofía práctica.
-Mi voz no nace de la teoría, sino de la experiencia: de caer, levantarme y entender que la vida respeta a quienes no se rinden.
-        </p>
+      <h1 class="section-title mb-5">Sobre Lobo Estoico</h1>
+
+      <div class="bio-image-wrapper mb-4">
+        <img src="img/daniel.png"
+             alt="Daniel - creador de Lobo Estoico"
+             class="bio-photo"
+             (click)="onPhotoClick()"
+             title="Daniel">
+      </div>
+
+      <h2 class="mb-4">{{ content().bioName }}</h2>
+
+      <p class="bio-text lead">{{ content().bioParagraph1 }}</p>
+      <p class="bio-text mt-3">{{ content().bioParagraph2 }}</p>
+
+      <div class="mt-5">
+        <a [href]="content().instagramUrl" target="_blank" class="btn btn-accent btn-lg">
+          <i class="bi bi-instagram me-2"></i>Seguir en Instagram
+        </a>
+      </div>
+
     </div>
-</div>
-
+  </div>
 </div>
