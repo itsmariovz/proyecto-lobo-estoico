@@ -1,8 +1,14 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+
 .navbar {
   backdrop-filter: blur(12px);
-  background-color: rgba(5, 5, 5, 0.88) !important;
+  background-color: rgba(5, 5, 5, 0.9) !important;
   border-bottom: 1px solid #1c1c1c;
-  transition: background-color 0.3s ease;
 }
 
 .logo-img {

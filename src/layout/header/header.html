@@ -1,14 +1,26 @@
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-lg">
   <div class="container-fluid px-3 px-lg-5">
+
+    <!-- Logo -->
     <a class="navbar-brand" routerLink="/">
       <img src="img/logo.jpg" alt="Lobo Estoico" width="72" height="60" class="logo-img">
     </a>
+
+    <!-- Instagram (solo mobile, entre logo y hamburguesa) -->
+    <a [href]="content().instagramUrl" target="_blank"
+      class="nav-ig-link d-flex d-lg-none align-items-center text-decoration-none ms-auto me-3"
+      aria-label="Instagram de Lobo Estoico">
+      <i class="bi bi-instagram fs-4"></i>
+    </a>
+
+    <!-- Hamburguesa -->
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Menú colapsable -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto gap-1">
         <li class="nav-item">
@@ -27,15 +39,17 @@
           </ul>
         </li>
       </ul>
+
+      <!-- Instagram (solo desktop, dentro del collapse) -->
+      <div class="d-none d-lg-flex align-items-center ms-3">
+        <a [href]="content().instagramUrl" target="_blank"
+          class="nav-ig-link d-flex align-items-center text-decoration-none"
+          aria-label="Instagram de Lobo Estoico">
+          <i class="bi bi-instagram fs-4"></i>
+          <span class="ms-2 fw-semibold small">&#64;lobo_estoico_</span>
+        </a>
+      </div>
     </div>
 
-    <div class="d-flex align-items-center ms-3">
-      <a [href]="content().instagramUrl" target="_blank"
-        class="nav-ig-link d-flex align-items-center text-decoration-none"
-        aria-label="Instagram de Lobo Estoico">
-        <i class="bi bi-instagram fs-4"></i>
-        <span class="d-none d-lg-inline ms-2 fw-semibold small">&#64;lobo_estoico_</span>
-      </a>
-    </div>
   </div>
 </nav>
